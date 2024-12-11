@@ -50,10 +50,12 @@ const Navbar = () => {
                         </button>
                         <Link href="/profile">
                             <Image
-                                src="/images/profile.png"
+                                // making sure we get the profile picture from goggle aacount
+                                
+                                src="https://lh3.googleusercontent.com/a/ACg8ocJ7T2h3MIa8vSrcPUNczjm2gEKYwP7LF0RXqMk5TiRtTxc2lMOZvg=s96-c"
                                 width={37}
                                 height={37}
-                                alt="profile picture"
+                                alt="User profile"
                                 className="rounded-full"
                             />
                         </Link>
@@ -82,7 +84,9 @@ const Navbar = () => {
                 {session?.user ? (
                     <div className="flex items-center">
                         <Image
-                            src="/images/profile.png"
+                            // making sure we get the profile picture from goggle aacount
+
+                            src="https://lh3.googleusercontent.com/a/ACg8ocJ7T2h3MIa8vSrcPUNczjm2gEKYwP7LF0RXqMk5TiRtTxc2lMOZvg=s96-c"
                             width={37}
                             height={37}
                             alt="profile picture"
