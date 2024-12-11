@@ -25,9 +25,9 @@ const Navbar = () => {
             {/* Logo Section */}
             <Link href="/" className="flex gap-2 items-center">
                 <Image
-                    src="/images/logo.webp"
-                    width={70}
-                    height={30}
+                    src="/images/logo2.jpg"
+                    width={50}
+                    height={50}
                     alt="Promptopia Logo"
                     className="object-contain"
                 />
@@ -103,9 +103,9 @@ const Navbar = () => {
                                         setToggleDropdown(false);
                                         signOut();
                                     }}
-                                    className="dropdown_link mt-5 w-full black_btn "
+                                    className="dropdown_link mt-5 w-full black_btn hover:text-black"
                                 >
-                                    <b className="text-white hover:text-black">Sign Out</b>
+                                    <b className="text-white hover:text-black w-full">Sign Out</b>
                                 </button>
                             </div>
                         )}
