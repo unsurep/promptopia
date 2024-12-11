@@ -3,10 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { signIn, signOut, getProviders } from 'next-auth/react';
+import { signIn, signOut, getProviders, useSession } from 'next-auth/react';
 
 const Navbar = () => {
-    const isUserLoggedIn = true; // Mock value for logged-in state; replace with actual session logic.
+    // Mock value for logged-in state; replace with actual session logic.
+    const {data: session} = useSession();
 
     const [providers, setProviders] = useState(null);
     const [toggleDropdown, setToggleDropdown] = useState(false);
@@ -34,9 +35,12 @@ const Navbar = () => {
                 <p className="logo_text">Promptopia</p>
             </Link>
 
+           
+
             {/* Desktop Navigation */}
             <div className="sm:flex hidden">
-                {isUserLoggedIn ? (
+                {/* use session to check if the user already exist */}
+                {session?.user ? (
                     <div className="flex gap-3 md:gap-5">
                         <Link href="/create-prompt" className="black_btn">
                             Create Post
@@ -73,7 +77,9 @@ const Navbar = () => {
 
             {/* Mobile Navigation */}
             <div className="sm:hidden flex relative">
-                {isUserLoggedIn ? (
+
+                {/* use session to check if the user already exist */}
+                {session?.user ? (
                     <div className="flex items-center">
                         <Image
                             src="/images/profile.png"
