@@ -161,8 +161,8 @@ const Navbar = () => {
                         <Link href={'/register'}>
                             <button
                                 type="button"
-                                    className="black_btn">
-                            <span className="pr-2"><FaUser className="w-full"  /></span> <span className="text-[10px]">Register</span>
+                                className="black_btn">
+                                <span className="pr-2"><FaUser className="w-fit"  /></span> <span className="text-[10px]">Register</span>
                             </button>
                         
                         </Link>
