@@ -24,7 +24,7 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className="flex-between w-full mb-5 px-4 pt-3">
+        <nav className="flex-between w-full  px-4 ">
             {/* Logo Section */}
             <Link href="/" className="flex gap-2 items-center">
                 <Image

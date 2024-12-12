@@ -66,7 +66,7 @@ const Register=()=>{
                     <div className="bg-amber-400 wobble-hor-top cursor-pointer py-[5rem] px-[5rem] text-white rounded-[20px] w-fit">
                         <div className="text-[10rem]"><BsRocketFill /></div>
                         <h2 className="flex-center"> Promptopia</h2>
-                        <p className="text-[10px] flex-center">Discover, create, share, delete and edit AI prompts</p>
+                        <p className="text-[10px] flex-center">Register, discover, create, share, delete and edit powerful AI prompts</p>
                     </div>
 
 
@@ -106,17 +106,7 @@ const Register=()=>{
                                 </span>
                             </div>  
 
-
-
-
-
-
-                            {/* check box remember me */}
-                            <div className="flex gap-2 justify-center mt-1">
-                                <input type="checkbox" /> 
-                                <label>Remember Me</label>
-                            </div>    
-
+                            {/* button */}
                             <div className="flex justify-center">
                                 <button className="w-fit bg-amber-200 hover:bg-amber-400 text-white font-medium rounded-full px-8 py-2 mt-2">Submit form</button>
                             </div>
