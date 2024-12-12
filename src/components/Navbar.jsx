@@ -159,10 +159,10 @@ const Navbar = () => {
 
                         {/* sign up normally */}
                         <Link href={'/register'}>
-                            <button
-                                type="button"
-                                className="black_btn">
-                                <span className="pr-2"><FaUser className="w-fit"  /></span> <span className="text-[10px]">Register</span>
+                            <button type="button" className="black_btn flex items-center justify-center gap-1">
+                                {/* <span className="md:pr-2"><FaUser className="w-fit" /></span><span className="text-[10px]">Register</span> */}
+                                <p className=""><FaUser/></p>
+                                <p className="text-[10px]">Register</p>
                             </button>
                         
                         </Link>
