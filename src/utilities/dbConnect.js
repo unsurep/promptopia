@@ -16,7 +16,12 @@ export const dbConnect = async () => {
 
 
     try {
-        
+        // const connect = await mongoose.connect(process.env.MONGODB_URL)
+        // if (connect) {
+        //     console.log ('mongodb connected')
+        //     return connect;
+        // }
+
          // Connect to the database
         await mongoose.connect(process.env.MONGODB_URI, {
         useNewUrlParser: true,

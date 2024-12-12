@@ -12,7 +12,7 @@ const Home=()=>{
 
   console.log ('Session is working', session);
 
-  if (session.status ==='unauthicated') {
+  if (session.status == 'unauthicated') {
     return router.replace('/login')
   }
 
