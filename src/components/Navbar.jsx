@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { signIn, signOut, getProviders, useSession } from 'next-auth/react';
+import { FcGoogle } from "react-icons/fc";
+import { FaUser } from "react-icons/fa6";
 
 const Navbar = () => {
     // Mock value for logged-in state; replace with actual session logic.
@@ -51,8 +53,8 @@ const Navbar = () => {
                         <Link href="/profile">
                             <Image
                                 // making sure we get the profile picture from goggle aacount
-                                
-                                src="https://lh3.googleusercontent.com/a/ACg8ocJ7T2h3MIa8vSrcPUNczjm2gEKYwP7LF0RXqMk5TiRtTxc2lMOZvg=s96-c"
+                                src="/images/profile.png"
+                                // src="https://lh3.googleusercontent.com/a/ACg8ocJ7T2h3MIa8vSrcPUNczjm2gEKYwP7LF0RXqMk5TiRtTxc2lMOZvg=s96-c"
                                 width={37}
                                 height={37}
                                 alt="User profile"
@@ -61,19 +63,33 @@ const Navbar = () => {
                         </Link>
                     </div>
                 ) : (
-                    <>
+                    <div className="flex flex-col gap-3">
                         {providers &&
                             Object.values(providers).map((provider) => (
-                                <button
-                                    type="button"
-                                    key={provider.name}
-                                    onClick={() => signIn(provider.id)}
-                                    className="black_btn"
-                                >
-                                    Sign In
-                                </button>
-                            ))}
-                    </>
+
+                               <div key={provider.name}>
+                                {/* signin / register with your google acc */}
+                                    <button
+                                        type="button"
+                                        // key={provider.name}
+                                        onClick={() => signIn(provider.id)}
+                                        className="black_btn">
+                                        <span className="pr-2"><FcGoogle className="w-full" /></span> Login with google
+                                    </button>
+                               </div>
+                        ))}
+
+                         {/* sign up normally */}
+                        <button
+                            type="button"
+                            className="black_btn">
+                            <span className="pr-2"><FaUser className="w-full"  /></span> Signup here
+                        </button>
+
+
+
+                            
+                    </div>
                 )}
             </div>
 
@@ -85,8 +101,9 @@ const Navbar = () => {
                     <div className="flex items-center">
                         <Image
                             // making sure we get the profile picture from goggle aacount
+                            src="/images/profile.png"
 
-                            src="https://lh3.googleusercontent.com/a/ACg8ocJ7T2h3MIa8vSrcPUNczjm2gEKYwP7LF0RXqMk5TiRtTxc2lMOZvg=s96-c"
+                            // src="https://lh3.googleusercontent.com/a/ACg8ocJ7T2h3MIa8vSrcPUNczjm2gEKYwP7LF0RXqMk5TiRtTxc2lMOZvg=s96-c"
                             width={37}
                             height={37}
                             alt="profile picture"
