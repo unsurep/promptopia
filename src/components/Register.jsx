@@ -116,6 +116,13 @@ const Register=()=>{
                                 <button type="submit" className="w-fit bg-amber-400 hover:bg-amber-200 text-white font-medium rounded-full px-8 py-2 mt-2">{loading? 'Loading...' : 'Submit form'}</button>
                             </div>
 
+                            <div>
+                                <i className="text-sm">Already registered, click here to 
+                                <Link href={'/login'} className="cursor-pointer text-yellow-500 pl-1">
+                                    login
+                                </Link></i>
+                            </div>
+
 
 
 
