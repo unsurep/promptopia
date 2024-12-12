@@ -61,7 +61,7 @@ const Login=()=>{
                 <div className="text-black justify-center">
                     <h1 className="flex-center head_text">Login Here</h1>
                     
-                    <div className="flex-center gap-[3rem] w-fit justify-center m-auto rounded-[20px] mt-4 shadow-[rgba(0,_0,_0,_0.2)_0px_60px_40px_-7px]">
+                    <div className="flex-center  w-fit justify-center m-auto rounded-[20px] mt-4 shadow-[rgba(0,_0,_0,_0.2)_0px_60px_40px_-7px]">
                         {/* div A */}
                         <div className="bg-amber-400 cursor-pointer py-[5rem] px-[5rem] text-white rounded-[20px] w-fit roll-in-right">
                             <div className="text-[10rem]"><FaUnlockAlt /></div>
@@ -82,10 +82,10 @@ const Login=()=>{
                                 </div>
                             )}
     
-                            <form onSubmit={submitHandler} className="flex flex-col flex-center gap-5 mt-">
+                            <form onSubmit={submitHandler} className="flex flex-col flex-center gap-5">
                                
                                 {/* email */}
-                                <div className="flex flex-col">
+                                <div className="flex flex-col pt-10">
                                     <label htmlFor="">Email</label>
                                     <input onChange={(e)=>setEmail(e.target.value)} type="email" 
                                     className="border border-b-stone-950 outline-none w-[20vw] px-3 py-1 text-sm"
@@ -111,7 +111,7 @@ const Login=()=>{
                                 </div>    
     
                                 <div className="flex justify-center">
-                                    <button className="w-fit bg-amber-200 hover:bg-amber-400 text-white font-medium rounded-full px-8 py-2 mt-2">Submit form</button>
+                                    <button type="submit" className="w-fit bg-amber-400 hover:bg-amber-200 text-white   font-medium rounded-full px-8 py-2 mt-2">{loading? 'Loading...' : 'Submit form'}</button>
                                 </div>
     
 

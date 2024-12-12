@@ -172,11 +172,11 @@
 
 
 
-*{
+/* *{
   border: 1px solid red;
   padding: 0;
   margin: 0;
-}
+} */
 
 .flicker-4 {
 	-webkit-animation: flicker-4 3s linear infinite both;

@@ -24,7 +24,7 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className="flex-between w-full  px-4 ">
+        <nav className="flex-between w-full px-[1rem] pt-[1rem] ">
             {/* Logo Section */}
             <Link href="/" className="flex gap-2 items-center">
                 <Image
@@ -152,7 +152,7 @@ const Navbar = () => {
                                         // key={provider.name}
                                         onClick={() => signIn(provider.id)}
                                         className="black_btn">
-                                        <span className="pr-2"><FcGoogle  /></span> <span className="text-[10px]">Google login</span>
+                                        <span className="pr-1"><FcGoogle  /></span> <span className="text-[10px]">Login</span>
                                     </button>
                                </div>
                         ))}
@@ -162,7 +162,7 @@ const Navbar = () => {
                             <button
                                 type="button"
                                     className="black_btn">
-                            <span className="pr-2"><FaUser className="w-full"  /></span> <span className="text-[10px]">Register here</span>
+                            <span className="pr-2"><FaUser className="w-full"  /></span> <span className="text-[10px]">Register</span>
                             </button>
                         
                         </Link>
