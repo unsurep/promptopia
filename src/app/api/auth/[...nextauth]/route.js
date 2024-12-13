@@ -15,6 +15,7 @@ const handler = NextAuth ({
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         })
     ],
+    
 
 
     // here we are getting the details of a user every single time its called

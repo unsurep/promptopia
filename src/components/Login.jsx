@@ -36,10 +36,8 @@ const Login=()=>{
 
         try {
 
-            // const res = await axios.post ('http://localhost:3000/api/login', {email, password})
-            const res = await axios.post (`${process.env.NEXT_PUBLIC_ENDPOINT}/api/login`, {email, password})
-
-    
+            const res = await axios.post ('http://localhost:3000/api/login', {email, password})
+            
 
             if (res.status===401) {
                 setError(true);
