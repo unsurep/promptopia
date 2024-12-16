@@ -65,10 +65,10 @@ const Register=()=>{
     <>
         <section className="px-[1rem]">
             <div className="text-black justify-center flex flex-col">
-                <h1 className="hidden md:flex md:justify-center md:items-center head_text">Register Here</h1>
-                <h1 className="md:hidden flex-center text-4xl font-extrabold mt-">Register Here</h1>
+                <h1 className="hidden md:flex md:justify-center md:items-center head_text pt-[1rem]">Register Here</h1>
+                <h1 className="md:hidden flex-center text-4xl font-extrabold my-[2rem]">Register Here</h1>
                 
-                <div className="lg:flex-center md:flex w-fit justify-center m-auto rounded-[20px] md:mt-4 shadow-[rgba(0,_0,_0,_0.2)_0px_60px_40px_-7px]">
+                <div className="lg:flex-center md:flex w-fit justify-center m-auto rounded-[20px] md:mt-[2rem] shadow-[rgba(0,_0,_0,_0.2)_0px_60px_40px_-7px]">
                     {/* div A */}
                     <div className="bg-amber-400 px-[1rem] wobble-hor-top cursor-pointer py-[5rem] md:px-[5rem] text-white rounded-[20px] w-fit">
                         <div className="text-[10rem] flex-center"><BsRocketFill /></div>
@@ -120,7 +120,7 @@ const Register=()=>{
                                 <button type="submit" className="w-fit bg-amber-400 hover:bg-amber-200 text-white font-medium rounded-full px-8 py-2 mt-2">{loading? 'Loading...' : 'Submit form'}</button>
                             </div>
 
-                            <div>
+                            <div className="pt-4">
                                 <i className="text-sm">Already registered, click here to 
                                 <Link href={'/login'} className="cursor-pointer text-yellow-500 pl-1">
                                     login

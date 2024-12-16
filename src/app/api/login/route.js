@@ -29,7 +29,7 @@ export const POST = async (res, req) => {
 
         }
 
-        return new NextResponse(JSON.stringify({msg:'user logged in'}), {status:200});
+        else return new NextResponse(JSON.stringify({msg:'user logged in'}), {status:200});
 
 
     } catch (error) {
