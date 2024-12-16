@@ -49,7 +49,7 @@ const Login=()=>{
             console.log(res);
  
         } catch (error) {
-            setError(error.message)
+            setError('Incorrect Email/Password')
         }
 
         setLoading(false);

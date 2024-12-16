@@ -1,40 +1,62 @@
 import { dbConnect } from '@/utilities/dbConnect';
-import registerModel from '@/models/register'
-import { NextResponse } from 'next/server'
-import bcrypt from 'bcrypt'
+import registerModel from '@/models/register';
+import { NextResponse } from 'next/server';
+import bcrypt from 'bcrypt';
 
-export const POST = async (res, req) => {
-    try {
-        // backend receiving incoming data from frontend
-    const {name, email, password} = await res.json();
-
-    // connecting to DB
-    await dbConnect();
-
-    // preventing user not to register twice
-    const userExists = await registerModel.findOne ({email:email});
-    if (userExists) {
-        return new NextResponse(JSON.stringify({msg:'user already exists'}), {status:200});
+export async function POST(request) {
+  try {
+    // Handle CORS preflight request
+    if (request.method === 'OPTIONS') {
+      return new NextResponse(null, {
+        status: 200,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        },
+      });
     }
 
-    // hashing of password with salt and bcrypt for security reasons 
-    const salt = bcrypt.genSaltSync(16);
-    const hashedPassword = bcrypt.hashSync(password, salt);
+    // Receiving incoming data from the frontend
+    const { name, email, password } = await request.json();
 
-    // Here we want to store the vales of the hashed password
-    const user = new registerModel ({name, email, password:hashedPassword})
+    // Connecting to the database
+    await dbConnect();
+
+    // Prevent duplicate user registration
+    const userExists = await registerModel.findOne({ email });
+    if (userExists) {
+      return new NextResponse(
+        JSON.stringify({ msg: 'User already exists' }),
+        { status: 400, headers: { 'Access-Control-Allow-Origin': '*' } }
+      );
+    }
+
+    // Hashing the password with salt and bcrypt
+    const salt = await bcrypt.genSalt(16);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    // Storing user data with the hashed password
+    const user = new registerModel({ name, email, password: hashedPassword });
     await user.save();
 
     if (!user) {
-        return new NextResponse (JSON.stringify({msg:'user not created'}), {status:400});
+      return new NextResponse(
+        JSON.stringify({ msg: 'User not created' }),
+        { status: 400, headers: { 'Access-Control-Allow-Origin': '*' } }
+      );
     }
 
-    else return new NextResponse (JSON.stringify({msg:'user created successfully'}), {status:201});
-        
-    } catch (error) {
-        console.log(error.message)
-        return new NextResponse (JSON.stringify({msg:'server error!'}), {status:500});
+    return new NextResponse(
+      JSON.stringify({ msg: 'User created successfully' }),
+      { status: 201, headers: { 'Access-Control-Allow-Origin': '*' } }
+    );
 
-        
-    }
-};
+  } catch (error) {
+    console.error(error.message);
+    return new NextResponse(
+      JSON.stringify({ msg: 'Server error!' }),
+      { status: 500, headers: { 'Access-Control-Allow-Origin': '*' } }
+    );
+  }
+}
