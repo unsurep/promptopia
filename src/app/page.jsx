@@ -17,10 +17,10 @@ import 'aos/dist/aos.css';
 
 
 const Home = () => {
-  const showCursor = true
+  const showCursor = true;
 
   const [text, helper]=useTypewriter ({
-    words: ['Discover', 'Create', 'Share','Discover & Share'],
+    words: ['Discover ', 'Create ', 'Share ','Discover & Share '],
     cursor: showCursor,
     cursorStyle:showCursor ? '_' : '',
     loop:5,
@@ -78,9 +78,9 @@ const Home = () => {
         </nav>
 
         <div data-aos="zoom-in-up" data-aos-duration="2000">
-          <h1 className="head_text text-center">{text}
+          <h1 className="head_text text-center"> {text}
             <br className="max-md:hidden" />
-            <span className="orange_gradient hidden:lg">AI-Powered Prompts</span>
+            <span className="orange_gradient hidden:lg"> AI-Powered Prompts</span>
           </h1>
 
           <p className="desc tect-center">

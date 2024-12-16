@@ -17,14 +17,17 @@ import 'aos/dist/aos.css';
 
 const Home = () => {
 
+  const showCursor = true;
+
   const [text, helper]=useTypewriter ({
-
-
-
-
-    
-  })
-
+    words: ['Discover ', 'Create ', 'Share ','Discover & Share '],
+    cursor: showCursor,
+    cursorStyle:showCursor ? '_' : '',
+    loop:5,
+    typeSpeed:40,
+    deleteSpeed:50,
+    delaySpeed:1000
+  });
 
   useEffect(() => {
     AOS.init({
@@ -36,7 +39,7 @@ const Home = () => {
  
 
     return (
-      <section className="w-full flex-center flex-col px-[1rem] ">
+      <section className="w-full flex-center flex-col px-[10px] ">
         {/* Nav */}
         <nav className="flex-between w-full px-[1rem] pt-[1rem]  ">
           {/* Logo Section */}
@@ -57,17 +60,17 @@ const Home = () => {
 
             {/* create button */}
             <Link href={"/create-prompt"}>
-              <button type="button" className="black_btn flex items-center justify-center gap-1 shake">
+              <button type="button" className="bg-black py-2 px-3 md:py-2 md:px-4 text-white rounded-full hover:bg-white hover:text-black hover:border outline flex items-center justify-center gap-1 shake">
                 {/* <p className=""><GoSignOut /></p> */}
-                <p className="text-[14px]">Create-Prompt</p>
+                <p className="text-[12px] md:text-[14px] ">Create-Prompt</p>
               </button>
             </Link>
 
             {/* signout button */}
             <Link href={""}>
-              <button type="button" className="black_btn flex items-center justify-center gap-1 shake">
+              <button type="button" className="bg-black px-3 py-2 md:py-2 md:px-4 rounded-full text-white hover:bg-white hover:text-black hover:border outline flex items-center justify-center gap-1 shake">
                 <p className=""><GoSignOut /></p>
-                <p className="text-[14px]">Sign out</p>
+                <p className="text-[12px] md:text-[14px]">Sign out</p>
               </button>
             </Link>
 
@@ -76,9 +79,8 @@ const Home = () => {
         </nav>
 
        <div data-aos="zoom-in-up" data-aos-duration="2000" >
-          <h1 className="head_text text-center">
-            Discover & Share
-            <br className="max-md:hidden" />
+          <h1 className="head_text text-center"> {text}
+            <br className="max-md:hidden" /> 
             <span className="orange_gradient hidden:lg">AI-Powered Prompts</span>
           </h1>
 
