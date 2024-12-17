@@ -94,7 +94,9 @@ const Home = () => {
 
         {/* weather section */}
 
-        <div className="absolute right-[3rem]  bottom-4 cursor-pointer rounded-full text-4xl text-yellow-400"><TiWeatherPartlySunny /></div>
+        <Link href={'/weatherapp'}>
+          <div className="absolute right-[3rem]  bottom-4 cursor-pointer rounded-full text-5xl text-yellow-400"><TiWeatherPartlySunny /></div>
+        </Link>
 
         
       </div>
