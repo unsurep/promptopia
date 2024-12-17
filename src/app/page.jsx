@@ -8,6 +8,7 @@ import { FaUser } from "react-icons/fa6";
 import Image from "next/image";
 import react from "react";
 import { useTypewriter } from "react-simple-typewriter";
+import { TiWeatherPartlySunny } from "react-icons/ti";
 
 
 // AOS
@@ -23,8 +24,8 @@ const Home = () => {
     words: ['Discover ', 'Create ', 'Share ','Discover & Share '],
     cursor: showCursor,
     cursorStyle:showCursor ? '_' : '',
-    loop:5,
-    typeSpeed:40,
+    loop:3,
+    typeSpeed:70,
     deleteSpeed:50,
     delaySpeed:1000
   });
@@ -49,7 +50,8 @@ const Home = () => {
 
 
     return (
-      <section className="w-full flex-center flex-col px-[1rem] ">
+      <section>
+      <div className="w-full flex-center flex-col px-[1rem] ">
         {/* Nav */}
         <nav className="flex-between w-full px-[1rem] pt-[2rem]  ">
           {/* Logo Section */}
@@ -77,6 +79,7 @@ const Home = () => {
 
         </nav>
 
+        {/* hero section */}
         <div data-aos="zoom-in-up" data-aos-duration="2000">
           <h1 className="head_text text-center"> {text}
             <br className="max-md:hidden" />
@@ -89,7 +92,12 @@ const Home = () => {
           </p>
         </div>
 
+        {/* weather section */}
+
+        <div className="absolute right-[3rem]  bottom-4 cursor-pointer rounded-full text-4xl text-yellow-400"><TiWeatherPartlySunny /></div>
+
         
+      </div>
       </section>
     );
   }

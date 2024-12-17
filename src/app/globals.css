@@ -170,13 +170,22 @@
   @apply flex justify-between items-center;
 }
 
+/* .bgWeatherApp{
+  background-image: url(../image/weather2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 
 
-/* *{
+} */
+
+
+
+*{
   border: 1px solid red;
   padding: 0;
   margin: 0;
-} */
+}
 
 .flicker-4 {
 	-webkit-animation: flicker-4 3s linear infinite both;

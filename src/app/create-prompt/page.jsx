@@ -1,48 +1,63 @@
-"use client";
+'use client'
 
-import Feed from "@/components/Feed";
+
+import {useState} from "react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import Form from "@/components/Form";
+import axios from "axios";
+
+
 import Link from "next/link";
-import { GoSignOut } from "react-icons/go";
 import Image from "next/image";
-import React from "react";
-import { Typewriter, useTypewriter } from "react-simple-typewriter";
 import { IoCreateOutline } from "react-icons/io5";
+import { GoSignOut } from "react-icons/go";
 
+const CreatePrompt =()=>{
+  const router = useRouter();
+  
 
-// AOS
-import { useEffect, useState } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+    const [submitting, setSubmitting]=useState(false);
+    const [post, setPost]=useState({
+        prompt:'',
+        tag:'',
 
-const Home = () => {
-
-  const showCursor = true;
-
-  const [text, helper]=useTypewriter ({
-    words: ['Discover ', 'Create ', 'Share ','Discover & Share '],
-    cursor: showCursor,
-    cursorStyle:showCursor ? '_' : '',
-    loop:5,
-    typeSpeed:40,
-    deleteSpeed:50,
-    delaySpeed:1000
-  });
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1000, // Animation duration in milliseconds
-      once: true, // Animation triggers only once on scroll
     });
-  }, []);
 
- 
+    const createPrompt = async (e) => {
+        e.preventDefault();
+        setSubmitting(true);
+
+        try {
+            // Making the API call using axios
+            const response = await axios.post('/api/prompt/new', {
+              prompt: post.prompt,
+              tag: post.tag
+            });
+      
+            // Handle successful response
+            if (response.status === 201) {
+              router.push('/home'); // Redirect to home page on success
+            }
+      
+          } catch (error) {
+            console.error("Error creating prompt:", error);
+          } finally {
+            setSubmitting(false); // Reset submitting state
+          }
+
+
+
+
+        
+    };
+
+
 
     return (
-      <section className="w-full flex-center flex-col px-[10px] ">
-        {/* Nav */}
-        <nav className="flex-between w-full px-[1rem] pt-[1rem]  ">
+        <>
+        {/* NavBar */}
+        <nav className="flex-between w-full px-[1rem]">
           {/* Logo Section */}
           <Link href="/" className="flex gap-2 items-center" data-aos="fade-left" data-aos-duration="2000">
             <Image
@@ -80,24 +95,21 @@ const Home = () => {
           </div>
         </nav>
 
-       <div data-aos="zoom-in-up" data-aos-duration="2000" >
-          <h1 className="head_text text-center"> {text}
-            <br className="max-md:hidden" /> 
-            <span className="orange_gradient hidden:lg">AI-Powered Prompts</span>
-          </h1>
+        <Form
+         type="Create" 
+         post={post}
+         setPost={setPost}
+         submitting={submitting}
+         handleSubmit={createPrompt}
+        
+        />
 
-          <p className="desc tect-center">
-            Promptopia is an open-source AI prompting tool for modern world to
-            discover, create and share creative prompts.
-          </p>
-        </div>
+        </>
+        
+    )
 
-        {/* Feed component */}
-        <div className="mt-10">
-          <Feed />    
-        </div>
 
-      </section>
-    );
-  }
-export default Home;
+
+};
+
+export default CreatePrompt;
