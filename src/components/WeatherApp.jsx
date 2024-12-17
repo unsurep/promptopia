@@ -115,7 +115,7 @@ const WeatherApp = () => {
       <hr className="mt-6" />
 
       { weatherData && 
-        <div className="mt-5 glassmorphism  md:h-[47vh] ">
+        <div className="mt-5 glassmorphism mx-[3rem] md:h-[47vh] ">
 
             <div className="">
                 <h2 className="text-5xl font-bold">{weatherData.name}</h2>
